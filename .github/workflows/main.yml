@@ -23,5 +23,5 @@ jobs:
         with:
           folder: dist # The folder the action should deploy.
           force: false
-          clean-exclude: pr-preview/
+          clean-exclude: pr-preview
           branch: gh-pages
