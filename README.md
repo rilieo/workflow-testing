@@ -5,6 +5,7 @@
 ### Requirements
 - A workflow file that deploys to GitHub Pages ex. `main.yaml`
 - A workflow file for PR previews ex. `preview.yaml`
+- `base` should be set to `""` in `vite.config.js`
 - GitHub Pages should be deployed to the `gh-pages` branch
     - Where can you set this?
 
@@ -25,7 +26,6 @@
     │   │   │   │   ├── Workflow Permissions
     └── ...
     ```
-- `base` should be set to `""` in `vite.config.js`
 
 ### Output
 - The URL generated would be something like `https://<USERNAME>.github.io/<REPONAME>/<UMBRELLA_DIR>/pr-<PR_NUMBER>`
@@ -60,7 +60,9 @@
 ### Debugging
 - Getting a `Resource not accessible by integration`
     - Make sure read and write permissions are set for workflow. Refer to [Requirements](#requirements)
+ 
 - Getting a `404 not found`
     - Since the deploy workflow `main.yaml` deploys using the build `folder: dist`, you can test that your production build looks and works ok with `npm run build && npm run preview`
         - `npm run preview` should serve the files in `dist` after building
+
     - Look at [Notes](#notes) for the annoying error
