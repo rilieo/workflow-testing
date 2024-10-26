@@ -1,6 +1,6 @@
 # Set Up for Vite Builds
 
-## [Preview Workflow](https://github.com/marketplace/actions/deploy-pr-preview)
+## [Preview Workflow](https://github.com/rossjrw/pr-preview-action)
 
 ### Requirements
 - A workflow file that deploys to GitHub Pages ex. `main.yaml`
@@ -65,3 +65,12 @@
         <link rel="stylesheet" crossorigin href="/blah/assets/index-n_ryQ3BS.css">
         ```
         - This is not correct because GitHub Pages will try to request files from `https://<USERNAME>.github.io/<REPONAME>/<UMBRELLA_DIR>/pr-<PR_NUMBER>/blah`, which does not exist
+
+## [Label Workflow](https://github.com/actions/labeler)
+
+### Requirements
+- A workflow file that creates the labels for a PR ex. `labeler.yml`
+- A file that lists what labels you want, depending on which files are changed ex. `labels.yml`
+
+### Output
+- The labels in `labels.yml` are automatically added to the PR when certain files are changed
