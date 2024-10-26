@@ -66,7 +66,7 @@
         ```
         - This is not correct because GitHub Pages will try to request files from `https://<USERNAME>.github.io/<REPONAME>/<UMBRELLA_DIR>/pr-<PR_NUMBER>/blah`, which does not exist
 
-## [Label Workflow](https://github.com/actions/labeler)
+## [Labeling Workflow](https://github.com/actions/labeler)
 
 ### Requirements
 - A workflow file that creates the labels for a PR ex. `labeler.yml`
