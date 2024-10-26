@@ -30,6 +30,16 @@
 ### Output
 - The URL generated would be something like `https://<USERNAME>.github.io/<REPONAME>/<UMBRELLA_DIR>/pr-<PR_NUMBER>`
     - `UMBRELLA_DIR` is configured in `preview.yaml`
+ 
+### Debugging
+- Getting a `Resource not accessible by integration`
+    - Make sure read and write permissions are set for workflow. Refer to [Requirements](#requirements)
+ 
+- Getting a `404 not found`
+    - Since the deploy workflow `main.yaml` deploys using the build folder `dist`, you can test that your production build looks and works ok with `npm run build && npm run preview`
+        - `npm run preview` should serve the files in `dist` after building
+
+    - Look at [Notes](#notes) for the annoying error
 
 ### Notes
 - In order to provide the path at which GitHub Pages deploys to, `base` is added to `vite.config.js`
@@ -54,15 +64,4 @@
         <script type="module" crossorigin src="/blah/assets/index-YWNzDFRL.js"></script>
         <link rel="stylesheet" crossorigin href="/blah/assets/index-n_ryQ3BS.css">
         ```
-        This is not correct because GitHub Pages will try to request files from `https://<USERNAME>.github.io/<REPONAME>/<UMBRELLA_DIR>/pr-<PR_NUMBER>/blah`, which does not exist
-
-
-### Debugging
-- Getting a `Resource not accessible by integration`
-    - Make sure read and write permissions are set for workflow. Refer to [Requirements](#requirements)
- 
-- Getting a `404 not found`
-    - Since the deploy workflow `main.yaml` deploys using the build `folder: dist`, you can test that your production build looks and works ok with `npm run build && npm run preview`
-        - `npm run preview` should serve the files in `dist` after building
-
-    - Look at [Notes](#notes) for the annoying error
+        - This is not correct because GitHub Pages will try to request files from `https://<USERNAME>.github.io/<REPONAME>/<UMBRELLA_DIR>/pr-<PR_NUMBER>/blah`, which does not exist
